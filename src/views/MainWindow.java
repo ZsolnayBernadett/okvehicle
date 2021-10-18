@@ -1,11 +1,11 @@
 /*
- * File: MainWindow.java
- * Created Date: 2021-09-24 22:18:18
- * Author: Sallai Andras
- * Github: https://github.com/andteki
+ * File: MainController.java
+ * Created Date: 2021-09-24 22:21:42
+ * Author: Zsolnai Bernadett
+ * Github: https://github.com/ZsolnayBernadett
  * -----
- * Last Modified: 2021-09-24
- * Modified By: Sallai Andras
+ * Last Modified: 2021-10-18
+ * Modified By: Zsolnai Bernadett
  * -----
  * Copyright (c) 2021 Sallai Andras
  * 
@@ -30,27 +30,52 @@ import javax.swing.table.DefaultTableModel;
 
 public class MainWindow extends JFrame {
     
-    public JLabel vehicleLabel;
-    public JPanel controlPanel;
-    public JPanel formPanel;
-    public JPanel buttonPanel;
-    public JLabel ordinalLabel;
-    public JTextField ordinalField;
-    public JLabel brandLabel;
-    public JTextField brandField;
-    public JLabel yearLabel;
-    public JTextField yearField;
-    public JButton addButton; 
-    public JButton delButton;
-    public JButton saveButton;
+    public JLabel vehicleLabel = new JLabel("Járművek");
+    public JPanel controlPanel = new JPanel();
+    public JPanel formPanel = new JPanel();
+    public JPanel buttonPanel = new JPanel();
+    public JLabel ordinalLabel = new JLabel("Rendszám");
+    public JTextField ordinalField = new JTextField();
+    public JLabel brandLabel = new JLabel("Márka");
+    public JTextField brandField = new JTextField();
+    public JLabel yearLabel = new JLabel("Év");
+    public JTextField yearField = new JTextField();
+    public JButton addButton = new JButton("Hozzáad"); 
+    public JButton delButton = new JButton("Töröl");
+    public JButton saveButton = new JButton("Mentés");
 
-    public DefaultTableModel vehicleModel;
-    public JTable vehicleTable;
-    public JScrollPane vehicleScrollPane;
+    public DefaultTableModel vehicleModel = new DefaultTableModel();
+    public JTable vehicleTable = new JTable();
+    public JScrollPane vehicleScrollPane = new JScrollPane();
 
     public MainWindow() {
 
-        /*******************************controlPanel létrehozása************************ */
+        initGUI();
+
+        this.vehicleModel = new DefaultTableModel();
+        this.vehicleTable = new JTable(vehicleModel);
+        this.vehicleScrollPane = new JScrollPane(this.vehicleTable);
+        this.vehicleScrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        Object[] tableLabels = {"Rendszám", "Márka", "Év"};
+        this.vehicleModel.setColumnIdentifiers(tableLabels);
+
+        this.vehicleLabel = new JLabel("Járművek");
+        this.vehicleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        this.vehicleLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+    }
+
+    private void initGUI(){
+
+        initLabel();
+        initControlPanel();
+        initFormPanel();
+        initButtons();
+        initFrame();
+    }
+    
+    private void initLabel(){
+
         this.controlPanel = new JPanel();
 
         this.ordinalLabel = new JLabel("Rendszám");
@@ -65,20 +90,19 @@ public class MainWindow extends JFrame {
         this.yearLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         this.yearLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
         this.yearField = new JTextField();
+    }
 
-        
-
-
+    private void initControlPanel(){
 
         this.controlPanel.setLayout(new BoxLayout(this.controlPanel, BoxLayout.LINE_AXIS));
         this.controlPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         this.controlPanel.add(this.formPanel);
         this.controlPanel.add(this.buttonPanel);
 
+    }
 
+    private void initFormPanel(){
 
-
-        /*******************************formPanel létrehozása************************ */
         this.formPanel = new JPanel();
         this.formPanel.setLayout(new GridLayout(3, 2));
         this.formPanel.add(this.ordinalLabel);
@@ -87,10 +111,10 @@ public class MainWindow extends JFrame {
         this.formPanel.add(this.brandField);
         this.formPanel.add(this.yearLabel);
         this.formPanel.add(this.yearField);
+    }
 
+    private void initButtons(){
 
-        
-        /*******************************buttonPanel létrehozása************************ */
         this.addButton = new JButton("Hozzáadás");
         this.delButton = new JButton("Törlés");
         this.saveButton = new JButton("Mentés");
@@ -99,22 +123,10 @@ public class MainWindow extends JFrame {
         this.buttonPanel.add(this.addButton);
         this.buttonPanel.add(this.delButton);
         this.buttonPanel.add(this.saveButton);
+    }
 
+    private void initFrame(){
 
-        // A táblázat előkészítése
-        this.vehicleModel = new DefaultTableModel();
-        this.vehicleTable = new JTable(vehicleModel);
-        this.vehicleScrollPane = new JScrollPane(this.vehicleTable);
-        this.vehicleScrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        Object[] tableLabels = {"Rendszám", "Márka", "Év"};
-        this.vehicleModel.setColumnIdentifiers(tableLabels);
-
-        // Az ablak felirata
-        this.vehicleLabel = new JLabel("Járművek");
-        this.vehicleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        this.vehicleLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        // Az ablak beállításai
         this.add(this.vehicleLabel);
         this.add(this.controlPanel);
         this.add(this.vehicleScrollPane);
@@ -122,8 +134,7 @@ public class MainWindow extends JFrame {
         this.setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // this.setSize(300, 250);
+        this.setSize(300, 250);
         this.pack();
     }
-    
 }

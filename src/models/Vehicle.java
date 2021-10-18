@@ -1,11 +1,11 @@
 /*
- * File: Vehicle.java
- * Created Date: 2021-09-25 00:50:58
- * Author: Sallai Andras
- * Github: https://github.com/andteki
+ * File: MainController.java
+ * Created Date: 2021-09-24 22:21:42
+ * Author: Zsolnai Bernadett
+ * Github: https://github.com/ZsolnayBernadett
  * -----
- * Last Modified: 2021-09-25
- * Modified By: Sallai Andras
+ * Last Modified: 2021-10-18
+ * Modified By: Zsolnai Bernadett
  * -----
  * Copyright (c) 2021 Sallai Andras
  * 
@@ -14,19 +14,29 @@
 
 package models;
 
-/**
- * A járművek bármilyen kerekes és kerék nélküli eszközök lehetnek.
- * Lehet akár egy Lada, egy szekér. De monjuk az utóbbi típusának
- * a feliírása nem könnyű ebben az oszhtályban. Rendszáma
- * meg pláne nincs a szekereknek, bicikliknek. De mivel
- * személyautókat eladó cégnek készül, jó lesz ez így.
- */
-
 public class Vehicle {
-    // ordinal tároló:
+
     public String ordinal;
-    // brand tároló:
     public String brand;
-    // year tároló:
     public String year;    
-}// A Vehicle vége
+
+    public String getOrdinal() {
+        return ordinal;
+    }
+    public void setOrdinal(String ordinal) {
+        this.ordinal = ordinal;
+    }
+    public String getBrand() {
+        return brand;
+    }
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+    public String getYear() {
+        return year;
+    }
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+}

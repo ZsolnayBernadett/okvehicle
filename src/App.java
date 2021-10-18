@@ -1,11 +1,11 @@
 /*
- * File: App.java
- * Created Date: 2021-09-24 22:13:27
- * Author: Sallai Andras
- * Github: https://github.com/andteki
+ * File: MainController.java
+ * Created Date: 2021-09-24 22:21:42
+ * Author: Zsolnai Bernadett
+ * Github: https://github.com/ZsolnayBernadett
  * -----
- * Last Modified: 2021-09-24
- * Modified By: Sallai Andras
+ * Last Modified: 2021-10-18
+ * Modified By: Zsolnai Bernadett
  * -----
  * Copyright (c) 2021 Sallai Andras
  * 

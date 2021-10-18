@@ -7,9 +7,9 @@
         "license": "Custom"
     },    
     "psi-header.variables": [
-        ["company", "Sallai Andras"],
-        ["author", "Sallai Andras"],
-        ["authoremail", "andrewteki@gmail.com"]
+        ["company"],
+        ["author"],
+        ["authoremail"]
     ],
     "psi-header.changes-tracking": {
         "isActive": true,
@@ -38,7 +38,7 @@
                 "File: <<filename>>",
                 "Created Date: <<filecreated('YYYY-MM-DD HH:mm:ss')>>",
                 "Author: <<author>>",
-                "Github: https://github.com/andteki"
+                "Github: https://github.com"
                 "-----",
                 "Last Modified: <<filecreated('YYYY-MM-DD')>>",
                 "Modified By: ",
